@@ -3,14 +3,14 @@ package ynov.jean.clientblog.model;
 
 public class Categorie {
 
-	private Long id;
+	private Long id_categorie;
 	private String nom_categorie;
 	
 	public Long getId() {
-		return id;
+		return id_categorie;
 	}
 	public void setId(Long id) {
-		this.id = id;
+		this.id_categorie = id;
 	}
 	public String getNom_categorie() {
 		return nom_categorie;

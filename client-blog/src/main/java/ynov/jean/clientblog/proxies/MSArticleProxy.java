@@ -8,16 +8,18 @@ import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
-import ynov.jean.clientblog.model.Categorie;
+import ynov.jean.clientblog.model.Article;
 
-@FeignClient(name= "blogbackcategorie")
-@RibbonClient(name= "blogbackcategorie")
+@FeignClient(name= "blogbackarticles")
+@RibbonClient(name= "blogbackarticles")
 
-public interface MSCategorieProxy {
+public interface MSArticleProxy {
 
-	@GetMapping(value = "/categories")
-	List<Categorie> getCategories();
+	@GetMapping(value = "/articles/{id_categorie}")
+	List<Article> getArticles();
 	
 	@GetMapping(value = "/categories/{id}")
-	Optional<Categorie> getCategorie(@PathVariable("id") Long id);
+	Optional<Article> getArticle(@PathVariable("id") Long id);
+	
+	
 }
