@@ -17,14 +17,21 @@ public class HomeController {
     private MSCategorieProxy categorieProxy;
 	
 	@RequestMapping("/")
-    public String accueil(Model model){
+    public String accueil(Model modelAcceuil){
 
         List<Categorie> categories =  categorieProxy.getCategories();
 
-        model.addAttribute("categories", categories);
+        modelAcceuil.addAttribute("categories", categories);
 
         return "Home";
     }
 	
 	@RequestMapping("/{name_categorie}")
+	public String categories(Model modelCategories) {
+		List<Article> articlesCategorie = articlesCategorieProxy.getArticle();
+		
+		modelCategories.addAttribute("articlesCategorie", articlesCategorie);
+		
+		return "CategorieArticles";
+	}
 }
